@@ -1,5 +1,5 @@
 const { app, BrowserWindow, ipcMain} = require('electron')
-const customSize = 300
+const customSize = 250
 const bigFactor = 2.4 // how much enlarge when double click video
 let win, smallPosition, bigPosition
 
@@ -40,18 +40,15 @@ function createWindow () {
     titleBarStyle: "customButtonsOnHover",
     transparent: true,
     alwaysOnTop: true,
-    maximizable: false,
     webPreferences: {
       nodeIntegration: true
     }
   })
 
   win.loadFile('index.html');
-  win.setVisibleOnAllWorkspaces(true)
-
+  
 }
 
-app.whenReady().then(createWindow)
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
@@ -64,3 +61,5 @@ app.on('activate', () => {
     createWindow()
   }
 })
+
+app.on('ready', () => setTimeout(createWindow, 600));

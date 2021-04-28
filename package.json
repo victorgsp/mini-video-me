@@ -1,17 +1,16 @@
 {
   "name": "mini-video-me",
-  "version": "3.0.0",
+  "version": "2.0.0",
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "electron --enable-transparent-visuals .",
-    "build": "electron-packager . --icon assets/webcam --overwrite --out=packages"
+    "start": "electron .",
+    "build": "npx electron-packager . --icon img/webcam.icns --overwrite"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "electron": "^10.1.1",
-    "electron-packager": "^15.2.0"
+  "dependencies": {
+    "electron": "^7.3.3"
   }
 }
